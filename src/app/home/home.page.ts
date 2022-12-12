@@ -24,13 +24,19 @@ export class HomePage {
   }
 
   async showIMC() {
-    const toast = await this.toastCtrl.create({
-      message: `IMC = ${this.imc.toFixed(2)}`,
-      duration: 3000,
-      color: 'secondary'
-    })
+    if (this.imc < 18.5) {
+      this.showIMC({
+        message: `IMC = ${this.imc.toFixed(2)} | Atenção: Você está magro!`,
+      })
+    }
     
-    toast.present()
+    // const toast = await this.toastCtrl.create({
+    //   message: `IMC = ${this.imc.toFixed(2)}`,
+    //   duration: 3000,
+    //   color: 'secondary'
+    // })
+    
+    // toast.present()
 
   }
 
